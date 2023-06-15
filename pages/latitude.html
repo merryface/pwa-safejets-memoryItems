@@ -44,21 +44,17 @@
   <div class="cards row container">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <div class="flaschard activator">
-          <p class="memoryItem-large">MEMORY ITEM</p>
+        <div id="flashcard" class="flaschard activator">
+          <p id="memoryItemText" class="memoryItem-large">MEMORY ITEM</p>
         </div>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">Reveal Procedure<i class="material-icons right">more_vert</i></span>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Memory Item<i class="material-icons right">close</i></span>
+        <span id="memoryItemSubText" class="card-title grey-text text-darken-4">Memory Item<i class="material-icons right">close</i></span>
         <table class='procedure-table striped'>
-          <tbody c>
-            <tr class="procedure-row">
-              <td class='procedure-step'></td>
-              <td class='procedure-action'></td>
-            </tr>
+          <tbody id="table-body">
           </tbody>
         </table>
       </div>
@@ -70,6 +66,24 @@
 
   
   <script type="text/javascript" src="/js/app.js"></script>
+  <script type="module">
+    import {flashcard} from '/js/flashcard.js';
+    const types = {
+      war: "warning",
+      cat: "caution",
+      unn: "unannounced",
+      ann: "annunciator"
+    }
+
+    const memoryItem = {
+      memoryItem: "APU FIRE",
+      procedure: [
+        ["APU FIRE Button","Push"],
+      ],
+      itemType: types.war
+    }
+    flashcard(memoryItem)
+  </script>
 
 </body>
 </html>
