@@ -3,7 +3,7 @@
   "short_name": "SafeJetsMemoryItems",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#8b0000",
+  "background_color": "#000",
   "theme_color": "#d3d3d3",
   "description": "SafeJets Memory Items",
   "orientation": "portrait",
