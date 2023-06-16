@@ -81,3 +81,11 @@
 .text-annunciator {
   color: #ac0101;
 }
+
+.counter {
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

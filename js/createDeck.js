@@ -1,9 +1,11 @@
 // deck.js
+
 import { flashcard } from '/js/flashcard.js';
 
 export const createDeck = (flashcards) => {
   let deck = [...flashcards]; // Make a copy of the flashcards array
   let currentIndex = 0;
+  let cardsSeen = 0;
 
   const shuffleDeck = () => {
     // Fisher-Yates shuffle algorithm
@@ -21,10 +23,21 @@ export const createDeck = (flashcards) => {
 
     const card = deck[currentIndex];
     currentIndex++;
+    cardsSeen++;
     return card;
   };
 
+  const getCardsSeen = () => {
+    return cardsSeen;
+  };
+
+  const getCardsLeft = () => {
+    return deck.length
+  };
+
   return {
-    getNextCard
+    getNextCard,
+    getCardsSeen,
+    getCardsLeft
   };
 };
