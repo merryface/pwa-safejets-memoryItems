@@ -14,8 +14,6 @@ export const createDeck = (flashcards) => {
   };
 
   const getNextCard = (isCorrect = true) => {
-    console.log(deck.length);
-
     if (isCorrect) {
       if (deck.length === 1) {
         deck = [...flashcards];
