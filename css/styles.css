@@ -89,3 +89,7 @@
   margin-top: 2rem;
   gap: 3rem;
 }
+
+.buttons .btn-large {
+  width: 100rem;
+}
