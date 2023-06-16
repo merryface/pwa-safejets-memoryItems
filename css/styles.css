@@ -82,10 +82,10 @@
   color: #ac0101;
 }
 
-.counter {
-  color: #fff;
-  font-size: 2rem;
+.buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 2rem;
+  gap: 3rem;
 }

@@ -267,6 +267,5 @@ export const LatitudeMemoryItems = [
       ["Throttles","TO"],
     ],
     itemType: types.war
-  },
-
+  }
 ]

@@ -60,11 +60,10 @@
       </div>
     </div>
 
-    <a id="rightButton" class="waves-effect green btn right-btn"><i class="material-icons left">check</i>Right</a>
-    <a id="wrongButton" class="waves-effect red btn wrong-btn"><i class="material-icons left">close</i>Wrong</a>
-
-    <div class="counter">
-      <span id="cardsSeen"></span> / <span id="cardsLeft"></span>
+    <!-- Buttons -->
+    <div class="buttons">
+      <a id="rightButton" class="waves-effect green btn right-btn"><i class="material-icons left">check</i>Right</a>
+      <a id="wrongButton" class="waves-effect red btn wrong-btn"><i class="material-icons left">close</i>Wrong</a>
     </div>
   </div>
 
@@ -79,29 +78,18 @@
     const deck = createDeck(LatitudeMemoryItems);
     const rightButton = document.getElementById("rightButton");
     const wrongButton = document.getElementById("wrongButton");
-    const cardsSeenElement = document.getElementById("cardsSeen");
-    const cardsLeftElement = document.getElementById("cardsLeft");
 
     rightButton.addEventListener("click", () => {
       const card = deck.getNextCard();
       flashcard(card);
-      updateCardCounter();
     });
 
     wrongButton.addEventListener("click", () => {
-      const card = deck.getNextCard();
-      flashcard(card);
-      updateCardCounter();
+      const card = deck.getNextCard(false);
     });
-
-    const updateCardCounter = () => {
-      cardsSeenElement.textContent = deck.getCardsSeen();
-      cardsLeftElement.textContent = deck.getCardsLeft();
-    };
 
     const initialCard = deck.getNextCard();
     flashcard(initialCard);
-    updateCardCounter();
   </script>
 </body>
 </html>

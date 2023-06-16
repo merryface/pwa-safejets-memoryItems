@@ -1,9 +1,9 @@
 // deck.js
 export const createDeck = (flashcards) => {
   let deck = [...flashcards]; // Make a copy of the flashcards array
-  let currentIndex = 0;
-  let cardsSeen = 0;
   let totalCards = deck.length;
+
+  
 
   const shuffleDeck = () => {
     // Fisher-Yates shuffle algorithm
@@ -13,27 +13,30 @@ export const createDeck = (flashcards) => {
     }
   };
 
-  const getNextCard = () => {
-    console.log('currentIndex', currentIndex);
+  const getNextCard = (isCorrect = true) => {
+    console.log(deck.length);
+
+    if (isCorrect) {
+      if (deck.length === 1) {
+        deck = [...flashcards];
+        shuffleDeck();
+      }
+      if (deck.length > 1) {
+        deck.splice(0, 1);
+      }
+    }
     
-    if (currentIndex >= totalCards) {
-      shuffleDeck();
-      currentIndex = 0;
-      cardsSeen = 0;
+    if (!isCorrect) {
+      deck.push(deck[0]);
+      deck.splice(0, 1);
     }
 
-    const card = deck[currentIndex];
-    currentIndex += 1;
-    cardsSeen += 1;
+    const card = deck[0];
+
     return card;
   };
 
-  const getCardsSeen = () => cardsSeen
-  const getCardsLeft = () => totalCards
-
   return {
-    getNextCard,
-    getCardsSeen,
-    getCardsLeft
+    getNextCard
   };
 };
