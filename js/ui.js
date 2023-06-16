@@ -7,22 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // disable button if procedure is open
-const moreVert = document.getElementById('moreVert')
-const memoryItemSubText = document.getElementById('memoryItemSubText')
+const rightButton = document.getElementById('rightButton')
+const wrongButton = document.getElementById('wrongButton')
+const flashcardCard = document.getElementById('flashcard-card')
+const proceduresCard = document.getElementById('proceduresCard')
 let procedureTabOpen = false
 
-moreVert.addEventListener('click', function() {
-  procedureTabOpen = !procedureTabOpen
-  if (procedureTabOpen) {
-    document.getElementById('rightButton').classList.add('disabled')
-    document.getElementById('wrongButton').classList.add('disabled')
-  }
-})
+// Pressing Right or Wrong Buttons will cause the procedure to coklapse
+const resetProcedureToHide = () => {
+  proceduresCard.setAttribute('style', 'display: none; transform: translateY(0%)');
+  flashcardCard.setAttribute('style', 'overflow:visible');
+}
 
-memoryItemSubText.addEventListener('click', function() {
-  procedureTabOpen = !procedureTabOpen
-  if (!procedureTabOpen) {
-    document.getElementById('rightButton').classList.remove('disabled')
-    document.getElementById('wrongButton').classList.remove('disabled')
-  }
-})
+rightButton.addEventListener('click', resetProcedureToHide)
+wrongButton.addEventListener('click', resetProcedureToHide)
