@@ -1,7 +1,7 @@
 {
   "name": "SafeJets Memory Items",
   "short_name": "SafeJetsMemoryItems",
-  "start_url": "/index.html",
+  "start_url": "src/index.html",
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#d3d3d3",
