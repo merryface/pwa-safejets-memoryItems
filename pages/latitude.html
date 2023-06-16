@@ -42,9 +42,9 @@
 
   <!-- Deck -->
   <div class="cards row container">
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <div id="flashcard" class="flaschard activator">
+    <div class="flaschard card">
+      <div id="flashcard-container" class="card-image waves-effect waves-block waves-light">
+        <div id="flashcard" class="flashcard activator">
           <p id="memoryItemText" class="memoryItem-large">MEMORY ITEM</p>
         </div>
       </div>
@@ -68,21 +68,9 @@
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="module">
     import {flashcard} from '/js/flashcard.js';
-    const types = {
-      war: "warning",
-      cat: "caution",
-      unn: "unannounced",
-      ann: "annunciator"
-    }
+    import {LatitudeMemoryItems} from '/js/memoryItems/LatitudeMemoryItems.js'
 
-    const memoryItem = {
-      memoryItem: "APU FIRE",
-      procedure: [
-        ["APU FIRE Button","Push"],
-      ],
-      itemType: types.war
-    }
-    flashcard(memoryItem)
+    flashcard(LatitudeMemoryItems[7])
   </script>
 
 </body>

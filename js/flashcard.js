@@ -1,10 +1,14 @@
 export const flashcard = (item) => {  
+  let flashcardContainer = document.getElementById("flashcard-container")
   let memoryItemTitle = document.getElementById("memoryItemText")
   let memoryItemSubText = document.getElementById("memoryItemSubText")
   let table = document.getElementById("table-body")
 
   memoryItemTitle.innerText = item.memoryItem;
   memoryItemSubText.innerText = item.memoryItem;
+  flashcardContainer.classList.add(`front-${item.itemType}`)
+  memoryItemTitle.classList.add(`text-${item.itemType}`)
+
 
   let flashcard = document.getElementById("flashcard")
   flashcard.className = item.itemType
