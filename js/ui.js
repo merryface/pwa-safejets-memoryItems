@@ -4,6 +4,25 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(menus, {edge: 'right'});
 })
 
+
+
 // disable button if procedure is open
-const procedureTabTransform = document.getElementById('proceduresCard').style.transform
-console.log("Hello!", procedureTabTransform)
+const moreVert = document.getElementById('moreVert')
+const memoryItemSubText = document.getElementById('memoryItemSubText')
+let procedureTabOpen = false
+
+moreVert.addEventListener('click', function() {
+  procedureTabOpen = !procedureTabOpen
+  if (procedureTabOpen) {
+    document.getElementById('rightButton').classList.add('disabled')
+    document.getElementById('wrongButton').classList.add('disabled')
+  }
+})
+
+memoryItemSubText.addEventListener('click', function() {
+  procedureTabOpen = !procedureTabOpen
+  if (!procedureTabOpen) {
+    document.getElementById('rightButton').classList.remove('disabled')
+    document.getElementById('wrongButton').classList.remove('disabled')
+  }
+})
