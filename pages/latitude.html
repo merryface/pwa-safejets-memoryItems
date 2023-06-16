@@ -60,9 +60,11 @@
       </div>
     </div>
 
-    <a id="nextButton" class="waves-effect indigo darken-4 btn-large next-btn"><i class="material-icons right">flight</i>Next Memory Item</a>
+    <a id="rightButton" class="waves-effect green btn right-btn"><i class="material-icons left">check</i>Right</a>
+    <a id="wrongButton" class="waves-effect red btn wrong-btn"><i class="material-icons left">close</i>Wrong</a>
+
     <div class="counter">
-      <span id="cardsSeen"></span>/<span id="cardsLeft"></span>
+      <span id="cardsSeen"></span> / <span id="cardsLeft"></span>
     </div>
   </div>
 
@@ -75,11 +77,18 @@
     import { createDeck } from '/js/createDeck.js';
 
     const deck = createDeck(LatitudeMemoryItems);
-    const nextButton = document.getElementById("nextButton");
+    const rightButton = document.getElementById("rightButton");
+    const wrongButton = document.getElementById("wrongButton");
     const cardsSeenElement = document.getElementById("cardsSeen");
     const cardsLeftElement = document.getElementById("cardsLeft");
 
-    nextButton.addEventListener("click", () => {
+    rightButton.addEventListener("click", () => {
+      const card = deck.getNextCard();
+      flashcard(card);
+      updateCardCounter();
+    });
+
+    wrongButton.addEventListener("click", () => {
       const card = deck.getNextCard();
       flashcard(card);
       updateCardCounter();
@@ -94,8 +103,5 @@
     flashcard(initialCard);
     updateCardCounter();
   </script>
-
-
-
 </body>
 </html>
