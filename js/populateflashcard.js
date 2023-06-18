@@ -1,4 +1,4 @@
-export const flashcard = (item) => {  
+export const populateflashcard = (item) => {  
   let flashcardContainer = document.getElementById("flashcard-container");
   let memoryItemTitle = document.getElementById("memoryItemText");
   let memoryItemSubText = document.getElementById("memoryItemSubText");
