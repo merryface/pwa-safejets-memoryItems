@@ -71,25 +71,27 @@
   
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="module">
-    import { flashcard } from '/js/flashcard.js';
-    import { xlsMemoryItems } from '/js/memoryItems/xlsMemoryItems.js';
-    import { createDeck } from '/js/createDeck.js';
+    import { LatitudeMemoryItems } from '/js/memoryItems/LatitudeMemoryItems.js';
+    import {createDeck} from '/js/utils/createDeck.js';
+    import {populateflashcard} from '/js/populateflashcard.js';
 
-    const deck = createDeck(xlsMemoryItems);
+    let deck = createDeck([...LatitudeMemoryItems]);
+    populateflashcard(deck[0]); //first card
+
     const rightButton = document.getElementById("rightButton");
     const wrongButton = document.getElementById("wrongButton");
 
     rightButton.addEventListener("click", () => {
-      const card = deck.getNextCard();
-      flashcard(card);
+      if (deck.length >= 1) deck.splice(0, 1)
+      if (deck.length < 1) deck = createDeck([...LatitudeMemoryItems])
+      populateflashcard(deck[0])
     });
 
     wrongButton.addEventListener("click", () => {
-      const card = deck.getNextCard(false);
+      deck.push(deck[0]);
+      deck.splice(0, 1);
+      populateflashcard(deck[0])
     });
-
-    const initialCard = deck.getNextCard();
-    flashcard(initialCard);
   </script>
 </body>
 </html>
